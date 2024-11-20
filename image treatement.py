@@ -33,7 +33,12 @@ def PassageBinaire_AfficheResultat(res):
     afficher_resultat(image=res)
     return d
 
-
+def Kernel_analyse(image_bw):
+    kernel=np.matrix([[-10,0,10],[-10,0,10],[-10,0,10]]) #[0,0,0],[0,1,0],[0,0,0] image pas changé 
+    print(kernel)
+    image1=cv2.filter2D(image_bw,-1, kernel)
+    afficher_resultat(image=image1)
+    return image1
 def convert_to_bw(image_array):
     image_bw=cv2.imdecode(image_array, cv2.IMREAD_GRAYSCALE)
     (thresh, image_bw)= cv2.threshold(image_bw,127,255,cv2.THRESH_BINARY)
