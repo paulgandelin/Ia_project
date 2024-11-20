@@ -14,5 +14,12 @@ def Afficher_image(image_array):
     else:
         afficher_resultat(image=image_afficher)
         return image_afficher
+        
+def PassageGris(image):
+    res=cv2.resize(image, dsize=(40,40), interpolation=cv2.INTER_CUBIC)
+    print(res.shape)
+    res=cv2.cvtColor(res,cv2.COLOR_RGB2GRAY)# to 3D to 1D
+    print(res.shape)
+    return res
 
 
