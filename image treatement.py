@@ -22,4 +22,16 @@ def PassageGris(image):
     print(res.shape)
     return res
 
+def PassageBinaire_AfficheResultat(res):
+    res=cv2.threshold(res,127,255,cv2.THRESH_BINARY)[1]
+    d=res
+    for row in range (0,40):
+        for col in range(0,40):
+            print('%03d' %d[row][col],end=' ')
+        print('')
+
+    afficher_resultat(image=res)
+    return d
+
+
 
