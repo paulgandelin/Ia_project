@@ -6,4 +6,13 @@ def CreerTab_donnee(chemin_image):
     return image_array
 
 
+def Afficher_image(image_array):
+    print(f'shape of image {image_array.shape}')
+    image_afficher= cv2.imdecode(image_array, cv2.IMREAD_COLOR)
+    if image_afficher is None:
+        print("Erreur : Impossible de décoder l'image")
+    else:
+        afficher_resultat(image=image_afficher)
+        return image_afficher
+
 
