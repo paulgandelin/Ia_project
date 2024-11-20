@@ -34,4 +34,8 @@ def PassageBinaire_AfficheResultat(res):
     return d
 
 
-
+def convert_to_bw(image_array):
+    image_bw=cv2.imdecode(image_array, cv2.IMREAD_GRAYSCALE)
+    (thresh, image_bw)= cv2.threshold(image_bw,127,255,cv2.THRESH_BINARY)
+    afficher_resultat(image=image_bw)
+    return image_bw
