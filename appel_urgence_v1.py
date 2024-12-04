@@ -4,6 +4,7 @@ from email.mime.multipart import MIMEMultipart
 from recuperation_bdd import Creation_liste_donnée
 
 
+
 def envoi_mail(f) : 
     expediteur, mot_de_passe, destinataire, sujet, corps = Creation_liste_donnée()
     try:
@@ -33,6 +34,9 @@ def envoi_mail(f) :
         serveur.sendmail(expediteur, destinataire, message.as_string())
         serveur.quit()
 
-        print("Email send")
+        print("Email envoyé avec succès!")
+    except Exception as e:
+        print(f"Erreur lors de l'envoi de l'email : {e}")
+
 
 
