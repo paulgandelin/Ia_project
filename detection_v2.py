@@ -10,7 +10,26 @@ video= cv2.VideoCapture(0)
 
 
 
+while video.isOpened():
+    ret, frame = video.read()
+    if not ret:
+        break
+    results = model.predict(source=frame, conf=0.5) #  source = images en cours de vision conf = confiance 
+    annotated_frame = results[0].plot() # annote les images 
 
+    for r in results[0].boxes:
+        if r.cls == 0 or r.cls == 1:  # attention valeur pour le feu à changer global
+            print("Feu détecté ! Envoi d'un email...")
+            break
+        else :
+            break
+    
+    cv2.imshow("fire dection aps", annotated_frame)
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+  
+video.release()
+cv2.destroyAllWindows()
 
 
 
