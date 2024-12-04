@@ -20,6 +20,8 @@ while video.isOpened():
     for r in results[0].boxes:
         if r.cls == 0 or r.cls == 1:  # attention valeur pour le feu à changer global
             print("Feu détecté ! Envoi d'un email...")
+            #envoi_mail(f=1)
+            #time.sleep(5)
             break
         else :
             break
