@@ -9,7 +9,7 @@ model = YOLO("runs/detect/train24/weights/last.pt")
 video= cv2.VideoCapture(0)
 
 
-
+#loop code
 while video.isOpened():
     ret, frame = video.read()
     if not ret:
@@ -19,7 +19,7 @@ while video.isOpened():
 
     for r in results[0].boxes:
         if r.cls == 0 or r.cls == 1:  # attention valeur pour le feu à changer global
-            print("Feu détecté ! Envoi d'un email...")
+            print("fire detected !")
             #envoi_mail(f=1)
             #time.sleep(5)
             break
@@ -29,7 +29,7 @@ while video.isOpened():
     cv2.imshow("fire dection aps", annotated_frame)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
-  
+#close all and free the memory
 video.release()
 cv2.destroyAllWindows()
 
